@@ -1,0 +1,25 @@
+.form-container{
+	border-radius: 3px;
+    overflow: hidden;
+    box-shadow: 0 0 15px 0 rgba(0,0,0,0.2);
+    margin: 0 auto;
+    width: 34em;
+    background: #f0f0f0;
+}
+
+.content{
+	padding-bottom: 4em !important;
+    background-color: #fff;
+    padding: 2em 5em;
+}
+
+.form-control{
+	border-radius: 3px;
+    border: 1px solid #eaeaea;
+    background: #fff;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    height: 40px;
+    width: 100%;
+    padding: 10px;
+}
