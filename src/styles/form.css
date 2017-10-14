@@ -24,3 +24,45 @@
     width: 100%;
     padding: 10px;
 }
+
+.alert{
+    margin-top: 30px;
+    animation: FadeAnimation 7s ease-in .2s forwards;
+}
+
+@keyframes FadeAnimation {
+  0% {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    border-radius: 3px;
+    background-color: #30A54A;
+    color: #fff;
+    margin-bottom: 1rem;
+    border: 1px solid #30A54A;
+}
+
+.submit-btn{
+    float: right;
+}
+
+.progress{
+    height: 8px;
+    margin-bottom: 1rem;
+}

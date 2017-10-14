@@ -5,7 +5,8 @@ import {
 
 const form = (state={
 	isFetching: false,
-	data: {}
+	data: null,
+	error: null
 }, action) => {
 	switch(action.type){
 		case POST_DATA:
@@ -17,12 +18,15 @@ const form = (state={
 			return {
 				...state,
 				isFetching: false,
-				data: action.data
+				data: action.data,
+				error: null
 			}
 		case POST_DATA_FAILURE:
 			return{
 				...state,
-				isFetching: false
+				isFetching: false,
+				error: action.error,
+				data: null
 			}
 		default:
 			return state

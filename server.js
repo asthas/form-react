@@ -2,10 +2,13 @@ const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
 const mongoose   = require('mongoose')
+const cors = require('cors')
 const User = require('./models/user')
+
 
 app.use(bodyParser.urlencoded({ extended: true}))
 app.use(bodyParser.json())
+app.use(cors())
 
 const port = process.env.PORT || 8080
 const router = express.Router()
@@ -37,7 +40,7 @@ router.route('/users')
 
 app.use('/api', router)
 
-mongoose.connect('mongodb://localhost:27017/demo') // done bye!
+mongoose.connect('mongodb://localhost:27017/demo')
 
 
 app.listen(port)

@@ -17,27 +17,24 @@ export function postDataSuccess(data) {
 	}
 }
 
-export function postDataFailure() {
+export function postDataFailure(error) {
 	return {
-		type: POST_DATA_FAILURE
+		type: POST_DATA_FAILURE,
+		error
 	}
 }
 
-export function submitForm(){
+export function submitForm(values){
 	return (dispatch) => {
-		dispatch(postData)
+		dispatch(postData())
 		return fetch('http://localhost:8080/api/users', { 
 			method: 'POST',
-			data: {
-			  name: "Astha",
-			  email: "asthamaths"
-			}
+			data: values
 		})
 		.then((response) => response.json())
 		.then((json) => dispatch(postDataSuccess(json)))
 		.catch((err) => {
-			console.log(err)
-			dispatch(postDataFailure)
+			dispatch(postDataFailure(err.message))
 		})
 	}
 }
