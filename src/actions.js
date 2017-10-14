@@ -27,7 +27,7 @@ export function submitForm(){
 		fetch('http://reqres.in/api/users', { 
 	        method: 'POST',
 	        data: {
-	          name: "Astha"
+	          name: "Astha",
 	          email: "asthamaths"
 	        }
 	    })
