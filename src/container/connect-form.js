@@ -5,7 +5,11 @@ import { connect } from 'react-redux'
 
 const mapDispatchToProps = (dispatch) => {
 	return{
-		onFormSubmit: () => {
+		onFormSubmit: (e) => {
+			e.preventDefault()
+			console.log('This was called')
+			console.log(dispatch)
+			console.log(submitForm)
 			dispatch(submitForm)
 		}
 	}
