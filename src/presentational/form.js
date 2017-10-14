@@ -2,7 +2,9 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import '../styles/form.css'
 
-const FormComponent = () => {
+const FormComponent = ({
+	onFormSubmit
+}) => {
 	return(
 		<div className="form-container">
 			<form className="content">
@@ -24,11 +26,11 @@ const FormComponent = () => {
 				<div className="form-group">
 					<input type="file" />
 				</div>
-				<div class="progress">
-				  <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style={{width: '10%'}} aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+				<div className="progress">
+				  <div className="progress-bar progress-bar-striped bg-success" role="progressbar" style={{width: '10%'}} aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
 				</div>
 				<div>
-					<button className="btn btn-success">Submit</button>
+					<button className="btn btn-success" onClick={onFormSubmit}>Submit</button>
 				</div>
 			</form> 
 		</div>		

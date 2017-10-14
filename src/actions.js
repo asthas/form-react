@@ -23,7 +23,7 @@ export function postDataFailure() {
 
 export function submitForm(){
 	return(dispatch) => {
-		dispatch(postData())
+		dispatch(postData)
 		fetch('http://reqres.in/api/users', { 
 	        method: 'POST',
 	        data: {

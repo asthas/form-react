@@ -1,14 +1,14 @@
-var express = require('express')
-var app = express()
-var bodyParser = require('body-parser')
-var mongoose   = require('mongoose')
-var user = require('./models/user')
+const express = require('express')
+const app = express()
+const bodyParser = require('body-parser')
+const mongoose   = require('mongoose')
+const User = require('./models/user')
 
 app.use(bodyParser.urlencoded({ extended: true}))
 app.use(bodyParser.json())
 
-var port = process.env.PORT || 8080
-var router = express.Router()
+const port = process.env.PORT || 8080
+const router = express.Router()
 
 router.use((req, res, next) => {
 	console.log("Set up the middleware")

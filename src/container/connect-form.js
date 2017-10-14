@@ -12,6 +12,7 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 const ConnenctedForm = connect(
+	null,
 	mapDispatchToProps
 )(FormComponent)
 
