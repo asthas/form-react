@@ -1,6 +1,7 @@
 import React from 'react'
-import submitForm  from '../actions'
-import formComponent  from '../presentational/form'
+import { submitForm }  from '../actions'
+import FormComponent  from '../presentational/form'
+import { connect } from 'react-redux'
 
 const mapDispatchToProps = (dispatch) => {
 	return{
@@ -12,6 +13,6 @@ const mapDispatchToProps = (dispatch) => {
 
 const ConnenctedForm = connect(
 	mapDispatchToProps
-)(Form)
+)(FormComponent)
 
 export default ConnenctedForm

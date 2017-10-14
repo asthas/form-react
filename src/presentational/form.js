@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import '../styles/form.css'
 
-const formComponent = () => {
+const FormComponent = () => {
 	return(
 		<div className="form-container">
 			<form className="content">
@@ -29,4 +29,4 @@ const formComponent = () => {
 	)
 }
 
-export default formComponent
+export default FormComponent
