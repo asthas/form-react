@@ -7,22 +7,28 @@ const FormComponent = () => {
 		<div className="form-container">
 			<form className="content">
 				<div className="form-group">
-					<input type="text" className="login-form-control" placeholder="FIRST NAME"/>
+					<input type="text" className="form-control" placeholder="Name" required/>
 				</div>
 				<div className="form-group">
-					<input type="password" className="login-form-control" placeholder="LAST NAME"/>
+					<input type="text" className="form-control" placeholder="Phone" required/>
 				</div>
 				<div className="form-group">
-					<input type="text" className="login-form-control" placeholder="PHONE"/>
+					<input type="text" className="form-control" placeholder="Email" required/>
 				</div>
 				<div className="form-group">
-					<input type="text" className="login-form-control" placeholder="EMAIL"/>
+					<input type="text" className="form-control" placeholder="Pan No." required/>
 				</div>
 				<div className="form-group">
-					<input type="password" className="login-form-control" placeholder="PASSWORD"/>
+					<input type="text" className="form-control" placeholder="Company Name" required/>
+				</div>
+				<div className="form-group">
+					<input type="file" />
+				</div>
+				<div class="progress">
+				  <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style={{width: '10%'}} aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
 				</div>
 				<div>
-					<button className="btn btn-primary">Sign Up</button>
+					<button className="btn btn-success">Submit</button>
 				</div>
 			</form> 
 		</div>		

@@ -13,7 +13,7 @@ class App extends Component {
     return (
       <Provider store={store}>
         <Router>
-          <Route path="/form" component={ConnectedForm} />
+          <Route path="/" component={ConnectedForm} />
         </Router>
       </Provider>
     )

@@ -5,12 +5,13 @@
     margin: 0 auto;
     width: 34em;
     background: #f0f0f0;
+    margin-top: 100px;
 }
 
 .content{
 	padding-bottom: 4em !important;
     background-color: #fff;
-    padding: 2em 5em;
+    padding: 4em 5em;
 }
 
 .form-control{
