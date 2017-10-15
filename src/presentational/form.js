@@ -35,14 +35,42 @@ class FormComponent extends Component {
 		this.props.onFormSubmit(values)
 	}
 
-	handleChange = (event) => {
-		
+	renderSuccessOrError = () => {
+		const { error, data } = this.props;
+		if (error) 
+			return this.renderError(error)
+		else
+			return this.renderSuccess(data)
 	}
-	
+
+	renderSuccess = (data) => {
+		if (!data) {
+			return null
+		}
+		const values = this.parseForm(this.formEl)
+		const totalVals = Array.from(values.values())
+		const filledVals = totalVals.filter(v => !!v && v !== "undefined")
+		return(
+			<div className="alert alert-success" role="alert">
+				Form successfully submitted!
+				<div>{filledVals.length} / {totalVals.length} submitted!</div>
+			</div>
+		)
+	}
+
+	renderError = (error) => {
+		if(!error){
+			return null
+		}
+		return(
+			<div className="alert alert-danger" role="alert">{error}</div>
+		)
+	}
+
 	render(){
 		return(
 			<div className="form-container">
-				<form onSubmit={this.formHandler} className="content">
+				<form ref={(el) => this.formEl = el} onSubmit={this.formHandler} className="content">
 					<div className="form-group">
 						<label className="form-label">NAME</label>
 						<input type="text" className="form-control" data="data" placeholder="Name" name="name" required/>
@@ -75,10 +103,7 @@ class FormComponent extends Component {
 					<div>
 						<button className="btn btn-success submit-btn">Submit</button>
 					</div>
-					
-					{this.props.error &&  <div className="alert alert-danger" role="alert">{this.props.error}</div>} 
-					{this.props.data && <div className="alert alert-success" role="alert">Form successfully submitted!</div>}
-					
+					{this.renderSuccessOrError()}					
 				</form> 
 			</div>		
 		)
