@@ -4,10 +4,6 @@ import '../styles/form.css'
 
 class FormComponent extends Component {
 
-	constructor(props){
-		super(props)
-	}
-
 	parseData = (form, data) => {
 		const inputEls = Array.from(form.querySelectorAll('input[data]'))
 		inputEls.forEach((el) => {

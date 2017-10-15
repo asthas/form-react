@@ -1,4 +1,4 @@
-import { submitForm, uploadDocuments}  from '../actions'
+import { submitForm }  from '../actions'
 import FormComponent  from '../presentational/form'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
