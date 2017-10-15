@@ -1,8 +1,9 @@
-import fetch from 'isomorphic-fetch'
+import axios from 'axios'
 
 export const POST_DATA = 'POST_DATA'
 export const POST_DATA_SUCCESS = 'POST_DATA_SUCCESS'
 export const POST_DATA_FAILURE = 'POST_DATA_FAILURE'
+export const SHOW_PROGRESS = 'SHOW_PROGRESS'
 
 export function postData() {
 	return {
@@ -24,17 +25,25 @@ export function postDataFailure(error) {
 	}
 }
 
+export function showProgress(progress){
+	return {
+		type: SHOW_PROGRESS,
+		progress
+	}
+}
+
+const progressHandler = (dispatch) => {
+	onUploadProgress: (progressEvent) => {
+		let percentCompleted = Math.round((progressEvent.loaded * 100) / progressEvent.total)
+		dispatch(showProgress(percentCompleted))
+	}
+}
+
 export function submitForm(values){
 	return (dispatch) => {
 		dispatch(postData())
-		return fetch('http://localhost:8080/api/users', { 
-			method: 'POST',
-			data: values
-		})
-		.then((response) => response.json())
-		.then((json) => dispatch(postDataSuccess(json)))
-		.catch((err) => {
-			dispatch(postDataFailure(err.message))
-		})
+		return axios.post('http://localhost:8080/api/users', values, progressHandler(dispatch))
+		.then((res) => dispatch(postDataSuccess(res)))
+		.catch((err) =>	dispatch(postDataFailure(err.message)))
 	}
 }

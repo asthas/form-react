@@ -56,6 +56,12 @@ input[type="file"] {
     color: #fff;
     margin-bottom: 1rem;
     border: 1px solid #30A54A;
+    max-width: 180px;
+}
+
+.submit-docs{
+    margin-bottom: 1rem;
+    margin-left: 14em;
 }
 
 .submit-btn{
@@ -65,4 +71,8 @@ input[type="file"] {
 .progress{
     height: 8px;
     margin-bottom: 1rem;
+}
+
+.upload-doc-div{
+    display: block;
 }

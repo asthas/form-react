@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux'
 import {
-	POST_DATA, POST_DATA_SUCCESS, POST_DATA_FAILURE 
+	POST_DATA, POST_DATA_SUCCESS, POST_DATA_FAILURE , SHOW_PROGRESS
 } from './actions'
 
 const form = (state={
@@ -27,6 +27,11 @@ const form = (state={
 				isFetching: false,
 				error: action.error,
 				data: null
+			}
+		case SHOW_PROGRESS:
+			return{
+				...state,
+				progress: action.progress
 			}
 		default:
 			return state

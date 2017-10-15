@@ -6,7 +6,7 @@ var userSchema = new Schema({
 	phone: String,
 	email: String,
 	panNumber: String,
-	companyName: String 
+	companyName: String
 })
 
 module.exports = mongoose.model('User', userSchema)
