@@ -49,7 +49,7 @@ const progressHandler = (dispatch) => ({
 export function submitForm(values){
 	return (dispatch) => {
 		dispatch(postData())
-		return axios.post('https://form-api.astha.me//api/users', values, progressHandler(dispatch))
+		return axios.post('https://form-api.astha.me/api/users', values, progressHandler(dispatch))
 		.then((res) => dispatch(postDataSuccess(res.data)))
 		.then(() => setTimeout(() => dispatch(dismissInfo()), 5000))
 		.catch((err) =>	{
