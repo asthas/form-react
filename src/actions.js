@@ -32,12 +32,12 @@ export function showProgress(progress){
 	}
 }
 
-const progressHandler = (dispatch) => {
+const progressHandler = (dispatch) => ({
 	onUploadProgress: (progressEvent) => {
 		let percentCompleted = Math.round((progressEvent.loaded * 100) / progressEvent.total)
 		dispatch(showProgress(percentCompleted))
 	}
-}
+})
 
 export function submitForm(values){
 	return (dispatch) => {

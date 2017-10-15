@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import FileInput from './file-input'
 import '../styles/form.css'
 
 class FormComponent extends Component {
@@ -33,51 +34,40 @@ class FormComponent extends Component {
 		const values = this.parseForm(event.target)
 		this.props.onFormSubmit(values)
 	}
+
+	handleChange = (event) => {
+		
+	}
 	
 	render(){
 		return(
 			<div className="form-container">
 				<form onSubmit={this.formHandler} className="content">
 					<div className="form-group">
+						<label className="form-label">NAME</label>
 						<input type="text" className="form-control" data="data" placeholder="Name" name="name" required/>
 					</div>
 					<div className="form-group">
+						<label className="form-label">PHONE NUMBER</label>
 						<input type="text" className="form-control" data="data" placeholder="Phone" name="phone" required/>
 					</div>
 					<div className="form-group">
+						<label className="form-label">EMAIL</label>
 						<input type="email" className="form-control" data="data" placeholder="Email" name="email" required/>
 					</div>
 					<div className="form-group">
+						<label className="form-label">PAN NUMBER</label>
 						<input type="text" className="form-control" data="data" placeholder="Pan No." name="panNo" required/>
 					</div>
 					<div className="form-group">
+						<label className="form-label">COMPANY NAME</label>
 						<input type="text" className="form-control" data="data" placeholder="Company Name" name="company" />
 					</div>
 					<div>
-						<div className="upload-doc-div">
-							<label class="custom-file-upload">
-							    <input type="file" accept='.jpg,.png,.jpeg' name="photo" />
-							    Upload Photo
-							</label>
-						</div>
-						<div className="upload-doc-div">
-							<label class="custom-file-upload">
-							    <input type="file" accept='.pdf,.doc,.docx,.jpg,.png,.jpeg' name="pan" />
-							    Upload Pan 
-							</label>
-						</div>
-						<div className="upload-doc-div">
-							<label class="custom-file-upload">
-							    <input type="file" accept='.pdf,.doc,.docx,.jpg,.png,.jpeg' name="aadhar" />
-							    Upload Aadhar
-							</label>
-						</div>
-						<div className="upload-doc-div">
-							<label class="custom-file-upload">
-							    <input type="file" accept='.pdf,.doc,.docx,.jpg,.png,.jpeg' name="passport" />
-							    Upload Passport
-							</label>
-						</div>
+						<FileInput name="photo" description="Upload Photo"/>
+						<FileInput name="pan" description="Upload Pan"/>
+						<FileInput name="aadhar" description="Upload Aadhar"/>
+						<FileInput name="passport" description="Upload Passport"/>
 						<div className="progress">
 						  <div className="progress-bar progress-bar-striped bg-success" role="progressbar" style={{width: `${this.props.progress}%`}} aria-valuenow={this.props.progress} aria-valuemin="0" aria-valuemax="100"></div>
 						</div>

@@ -49,16 +49,16 @@ router.route('/users')
 	})
 
 const saveFiles = (userId, files) => {
+	const fileNames = Object.keys(files)
 	return Promise.all(
-		files.forEach((file) => saveFile(userId, file))
+		fileNames.map(fileName => saveFile(userId, fileName, files[fileName]))
 	)
 }
 
-const saveFile = (userId, fileObj) => {
+const saveFile = (userId, fileName, fileObj) => {
 	return new Promise((resolve, reject) => {
-		const { name, file } = fileObj
-		const uploadTo = `uploads/${userId}/${name}`
-		file.mv(uploadTo, (err) => {
+		const uploadTo = `${__dirname}/uploads/${userId}-${fileName}`
+		fileObj.mv(uploadTo, (err) => {
 			if(err)
 				reject(err)
 			else

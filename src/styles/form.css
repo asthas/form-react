@@ -23,6 +23,7 @@
     height: 40px;
     width: 100%;
     padding: 10px;
+    color: #555;
 }
 
 .alert{
@@ -75,4 +76,19 @@ input[type="file"] {
 
 .upload-doc-div{
     display: block;
+}
+
+.form-label{
+    font-size: 0.75em;
+    letter-spacing: .3px;
+    line-height: 2em;
+    color: #6a6a6a;
+    font-weight: normal;
+    margin-bottom: 0;
+}
+
+.file-name{
+    color: #555;
+    margin-left: 20px;
+    font-size: 14px;
 }
