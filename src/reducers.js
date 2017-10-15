@@ -1,6 +1,10 @@
 import { combineReducers } from 'redux'
 import {
-	POST_DATA, POST_DATA_SUCCESS, POST_DATA_FAILURE , SHOW_PROGRESS
+	POST_DATA, 
+	POST_DATA_SUCCESS, 
+	POST_DATA_FAILURE, 
+	SHOW_PROGRESS, 
+	DISMISS_INFO
 } from './actions'
 
 const form = (state={
@@ -32,6 +36,12 @@ const form = (state={
 			return{
 				...state,
 				progress: action.progress
+			}
+		case DISMISS_INFO:
+			return{
+				...state,
+				error: null,
+				data: null
 			}
 		default:
 			return state

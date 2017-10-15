@@ -4,6 +4,7 @@ export const POST_DATA = 'POST_DATA'
 export const POST_DATA_SUCCESS = 'POST_DATA_SUCCESS'
 export const POST_DATA_FAILURE = 'POST_DATA_FAILURE'
 export const SHOW_PROGRESS = 'SHOW_PROGRESS'
+export const DISMISS_INFO = 'DISMISS_INFO'
 
 export function postData() {
 	return {
@@ -25,6 +26,12 @@ export function postDataFailure(error) {
 	}
 }
 
+export function dismissInfo(){
+	return {
+		type: DISMISS_INFO
+	}
+}
+
 export function showProgress(progress){
 	return {
 		type: SHOW_PROGRESS,
@@ -43,7 +50,11 @@ export function submitForm(values){
 	return (dispatch) => {
 		dispatch(postData())
 		return axios.post('http://localhost:8080/api/users', values, progressHandler(dispatch))
-		.then((res) => dispatch(postDataSuccess(res)))
-		.catch((err) =>	dispatch(postDataFailure(err.message)))
+		.then((res) => dispatch(postDataSuccess(res.data)))
+		.then(() => setTimeout(() => dispatch(dismissInfo()), 5000))
+		.catch((err) =>	{
+			dispatch(postDataFailure(err.message))
+			setTimeout(() => dispatch(dismissInfo()), 5000)
+		})
 	}
 }

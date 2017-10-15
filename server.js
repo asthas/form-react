@@ -57,7 +57,9 @@ const saveFiles = (userId, files) => {
 
 const saveFile = (userId, fileName, fileObj) => {
 	return new Promise((resolve, reject) => {
-		const uploadTo = `${__dirname}/uploads/${userId}-${fileName}`
+		const { name } = fileObj
+		const extension = name.slice(name.lastIndexOf('.'));
+		const uploadTo = `${__dirname}/uploads/${userId}-${fileName}${extension}`
 		fileObj.mv(uploadTo, (err) => {
 			if(err)
 				reject(err)

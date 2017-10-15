@@ -27,20 +27,7 @@
 }
 
 .alert{
-    margin-top: 30px;
-    animation: FadeAnimation 7s ease-in .2s forwards;
-}
-
-@keyframes FadeAnimation {
-  0% {
-    opacity: 1;
-    visibility: visible;
-  }
-
-  100% {
-    opacity: 0;
-    visibility: hidden;
-  }
+    margin-top: 70px;
 }
 
 input[type="file"] {
