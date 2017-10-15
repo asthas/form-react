@@ -73,7 +73,7 @@ class FormComponent extends Component {
 					</div>
 					<div className="form-group">
 						<label className="form-label">PHONE NUMBER</label>
-						<input type="text" className="form-control" data="data" placeholder="Phone" name="phone" required/>
+						<input type="number" className="form-control" data="data" placeholder="Phone" name="phone" required/>
 					</div>
 					<div className="form-group">
 						<label className="form-label">EMAIL</label>
