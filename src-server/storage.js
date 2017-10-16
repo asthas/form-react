@@ -14,7 +14,7 @@ const saveFile = (userId, fileName, fileObj) => {
 }
 
 const saveFiles = (userId, files) => {
-	const fileNames = Object.keys(files)
+	const fileNames = Object.keys(files || {})
 	return Promise.all(
 		fileNames.map(fileName => saveFile(userId, fileName, files[fileName]))
 	)
